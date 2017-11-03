@@ -7,6 +7,8 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('proyecto-route');
+  this.route('criterio-route');
 });
 
 export default Router;
