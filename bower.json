@@ -1,0 +1,6 @@
+{
+  "name": "proyectosestrat",
+  "dependencies": {
+    "materialize": "0.100.2"
+  }
+}
