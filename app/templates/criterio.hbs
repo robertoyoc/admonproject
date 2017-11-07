@@ -1,1 +1,76 @@
-{{outlet}}
+
+	<div class="row">
+		<nav>
+			<div class="nav-wrapper blue lighten-2">
+			  <a href="#" class="brand-logo center"><h5>Establecimiento de criterios</h5></a>
+			</div>
+		</nav>
+	</div>
+
+	<div class="row">
+		<div class="container">
+			<table class="striped">
+				<thead>
+					<tr>
+						<th>Criterio</th>
+						<th>Tipo</th>
+						<th>Ponderación</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td>Duración</td>
+						<td>Cuantitativo</td>
+						<td><input type="number" class="validate"></td>
+					</tr>
+					<tr>
+						<td>Valor Presente Neto (VPN)</td>
+						<td>Cuantitativo</td>
+						<td><input type="number" class="validate"></td>
+					</tr>
+					<tr>
+						<td>Periodo de recuperación de l ainversión (PIR)</td>
+						<td>Cuantitativo</td>
+						<td><input type="number" class="validate"></td>
+					</tr>
+					<tr>
+						<td>Riesgo</td>
+						<td>Cualitativo</td>
+						<td><input type="number" class="validate"></td>
+					</tr>
+					<tr>
+						<td>Generación de teconología propietaria</td>
+						<td>Cualitativo</td>
+						<td><input type="number" class="validate"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="container">
+			<button class="btn waves-effect waves-light cyan darken-4">
+				<i class="material-icons right">add_circle</i>
+                {{#link-to 'addCriterio'}} Añadir criterio {{/link-to}}
+			</button>
+		</div>
+	</div>
+
+	<footer class="page-footer blue lighten-1">
+		<div class="row">
+			<div class="container">
+				<button class="btn waves-effect waves-light blue lighten-1">
+					<i class="material-icons right">arrow_back</i>
+					{{#link-to 'index'}}{{/link-to}}
+				</button>
+			</div>
+			<div class="container">
+				<button class="btn waves-effect waves-light blue lighten-1">
+					<i class="material-icons right">arrow_back</i>
+					{{#link-to 'index'}}{{/link-to}}
+				</button>
+			</div>
+		</div>
+	</footer>
