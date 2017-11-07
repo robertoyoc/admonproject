@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('proyecto');
   this.route('criterio');
   this.route('addCriterio');
+  this.route('anCostos');
 });
 
 export default Router;
