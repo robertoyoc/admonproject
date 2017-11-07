@@ -9,7 +9,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('proyecto');
   this.route('criterio');
-  this.route('addCriterio');
+  this.route('addCriterio', {path: "/new"});
 });
 
 export default Router;

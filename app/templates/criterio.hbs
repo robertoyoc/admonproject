@@ -19,31 +19,15 @@
 				</thead>
 
 				<tbody>
-					<tr>
-						<td>Duración</td>
-						<td>Cuantitativo</td>
-						<td><input type="number" class="validate"></td>
-					</tr>
-					<tr>
-						<td>Valor Presente Neto (VPN)</td>
-						<td>Cuantitativo</td>
-						<td><input type="number" class="validate"></td>
-					</tr>
-					<tr>
-						<td>Periodo de recuperación de l ainversión (PIR)</td>
-						<td>Cuantitativo</td>
-						<td><input type="number" class="validate"></td>
-					</tr>
-					<tr>
-						<td>Riesgo</td>
-						<td>Cualitativo</td>
-						<td><input type="number" class="validate"></td>
-					</tr>
-					<tr>
-						<td>Generación de teconología propietaria</td>
-						<td>Cualitativo</td>
-						<td><input type="number" class="validate"></td>
-					</tr>
+          {{#each model as |criterio|}}
+          <tr>
+
+            <td> {{criterio.nombre}} </td>
+            <td> {{if criterio.isCuantitativo 'Cuantitativo' 'Cualitativo'}} </td>
+            <td> {{criterio.valor}} </td>
+          </tr>
+
+          {{/each}}
 				</tbody>
 			</table>
 		</div>
