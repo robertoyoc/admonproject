@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('addCriterio', {path: "/new"});
   this.route('regProyecto');
   this.route('asigValores');
+  this.route('matDecision');
 });
 
 export default Router;
