@@ -35,26 +35,17 @@
 
 	<div class="row">
 		<div class="container">
-			<button class="btn waves-effect waves-light cyan darken-4">
-				<i class="material-icons right">add_circle</i>
-                {{#link-to 'addCriterio'}} Añadir criterio {{/link-to}}
-			</button>
+            {{#link-to 'addCriterio' tagName="button" class="btn waves-effect waves-light grey darken-1"}}<i class="material-icons right">add_circle</i> Añadir criterio {{/link-to}}
 		</div>
 	</div>
 
 	<footer class="page-footer blue lighten-1">
 		<div class="row">
-			<div class="container">
-				<button class="btn waves-effect waves-light blue lighten-1">
-					<i class="material-icons right">arrow_back</i>
-					{{#link-to 'index'}}{{/link-to}}
-				</button>
+			<div class="col s2 offset-s1">
+				{{#link-to 'index' tagName="button" class= "btn waves-effect waves-light blue lighten-1"}}<i class="material-icons right">arrow_back</i>{{/link-to}}
 			</div>
-			<div class="container">
-				<button class="btn waves-effect waves-light blue lighten-1">
-					<i class="material-icons right">arrow_back</i>
-					{{#link-to 'index'}}{{/link-to}}
-				</button>
-			</div>
+			<div class="col s2 offset-s7">
+				{{#link-to 'regProyecto' tagName="button" class= "btn waves-effect waves-light blue lighten-1"}}<i class="material-icons right">arrow_forward</i>{{/link-to}}
+			</div>	
 		</div>
 	</footer>
