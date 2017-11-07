@@ -7,59 +7,82 @@
 		</nav>
 	</div>
 
-	<div class="form s8 offset-s2">
-		<div class="row">
-			<div class="input-field col s10 offset-s1">
-        <input id="new_criterio" type="text" class="validate">
-        <label for="Nuevo criterio">Nuevo criterio</label>
+
+  <div class="row">
+    <div class="col m6 offset-m3">
+      <div class="row">
+        <div class="input-field col m12">
+          {{input type="text" value=model.nombre class="validate"}}
+          <label for="Nuevo criterio">Nuevo criterio</label>
+        </div>
       </div>
-		</div>
-		<div class="row">
-			<div class="col s10 offset-s1">
-				<p>
-					<input type="checkbox" id="test5" />
-					<label for="test5">Cuantitativo (El criterio acepta valores numéricos)</label>
-				</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s3 offset-s1">
-				<p>
-					<input type="checkbox" id="test5" />
-					<label for="test5">Cuanlitativo (Elige una categoría)</label>
-				</p>
-			</div>
-			<div class="col s3">
-				<label>Categorías para criterios cuanlitativos</label>
-				<select class="browser-default">
-					<option value="" disabled selected>Desplegar:</option>
-					<option value="1">Muy bajo</option>
-					<option value="2">Bajo</option>
-					<option value="3">Moderado</option>
-					<option value="4">Alto</option>
-					<option value="5">Muy alto</option>
-				</select>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col m6">
+          <div class="switch">
+            <label>
+              Cualitativo
+              {{input type="checkbox" checked=model.isCuantitativo}}
+              <span class="lever"></span>
+              Cuantitativo
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col m12">
+          <label for=""><h6>MEJOR calificación es otorgada al valor</h6></label>
+        </div>
+        <div class="col m12">
+          <select class="browser-default" onchange={{action (mut model.cal) value="target.value"}}>
+            <option disabled selected>Selecciona</option>
+            {{#each categories as |categoryChoice index|}}
+              <option value={{index}} selected={{eq model.cal categoryChoice}}>{{categoryChoice.nombre}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <button {{action 'save' model}} class="btn waves-effect waves-light cyan darken-4">
+            <i class="material-icons right">add_circle</i>
+            Confirmar
+          </button>
+        </div>
+      </div>
+      {{!-- {{#unless model.isCuantitativo}}
+      <div class="row">
+        <div class="col m12">
+          <label>Categorías para criterios cuanlitativos</label>
+
+          <select class="browser-default" onchange={{action (mut model.cal) value="target.value"}}>
+            <option disabled selected>Selecciona</option>
+            {{#each categories as |categoryChoice index|}}
+              <option value={{index}} selected={{eq model.cal categoryChoice}}>{{categoryChoice.nombre}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      {{else}}
+        <div class="row">
+          <div class="input-field col m12">
+            {{input type="text" value=model.valor class="validate"}}
+            <label for="Nuevo criterio">Valor</label>
+          </div>
+        </div>
+
+      {{/unless}} --}}
+
+
+
+
+
+    </div>
+  </div>
+
+    <footer class="page-footer blue lighten-1">
 		<div class="row">
 			<div class="col s2 offset-s1">
-				<label for=""><h6>MEJOR calificación es otorgada al valor</h6></label>
-			</div>
-			<div class="col s3">
-				<select class="browser-default">
-					<option value="" disabled selected>Elija tipo de valor:</option>
-					<option value="1">Menor</option>
-					<option value="2">Mayor</option>
-				</select>
+				{{#link-to 'criterio' tagName="button" class= "btn waves-effect waves-light blue lighten-1"}}<i class="material-icons right">arrow_back</i>{{/link-to}}
 			</div>
 		</div>
-		<div class="row">
-			<div class="container">
-				<button class="btn waves-effect waves-light cyan darken-4">
-					<i class="material-icons right">add_circle</i>
-					{{#link-to 'criterio'}} Confirmar {{/link-to}}
-				</button>
-			</div>
-		</div>
-
-	</div>
+	</footer>

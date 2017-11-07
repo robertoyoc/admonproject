@@ -19,31 +19,15 @@
 				</thead>
 
 				<tbody>
-					<tr>
-						<td>Duración</td>
-						<td>Cuantitativo</td>
-						<td><input type="number" class="validate"></td>
-					</tr>
-					<tr>
-						<td>Valor Presente Neto (VPN)</td>
-						<td>Cuantitativo</td>
-						<td><input type="number" class="validate"></td>
-					</tr>
-					<tr>
-						<td>Periodo de recuperación de l ainversión (PIR)</td>
-						<td>Cuantitativo</td>
-						<td><input type="number" class="validate"></td>
-					</tr>
-					<tr>
-						<td>Riesgo</td>
-						<td>Cualitativo</td>
-						<td><input type="number" class="validate"></td>
-					</tr>
-					<tr>
-						<td>Generación de teconología propietaria</td>
-						<td>Cualitativo</td>
-						<td><input type="number" class="validate"></td>
-					</tr>
+          {{#each model as |criterio|}}
+          <tr>
+
+            <td> {{criterio.nombre}} </td>
+            <td> {{if criterio.isCuantitativo 'Cuantitativo' 'Cualitativo'}} </td>
+            <td> {{criterio.valor}} </td>
+          </tr>
+
+          {{/each}}
 				</tbody>
 			</table>
 		</div>
@@ -51,26 +35,17 @@
 
 	<div class="row">
 		<div class="container">
-			<button class="btn waves-effect waves-light cyan darken-4">
-				<i class="material-icons right">add_circle</i>
-                {{#link-to 'addCriterio'}} Añadir criterio {{/link-to}}
-			</button>
+            {{#link-to 'addCriterio' tagName="button" class="btn waves-effect waves-light grey darken-1"}}<i class="material-icons right">add_circle</i> Añadir criterio {{/link-to}}
 		</div>
 	</div>
 
 	<footer class="page-footer blue lighten-1">
 		<div class="row">
-			<div class="container">
-				<button class="btn waves-effect waves-light blue lighten-1">
-					<i class="material-icons right">arrow_back</i>
-					{{#link-to 'index'}}{{/link-to}}
-				</button>
+			<div class="col s2 offset-s1">
+				{{#link-to 'index' tagName="button" class= "btn waves-effect waves-light blue lighten-1"}}<i class="material-icons right">arrow_back</i>{{/link-to}}
 			</div>
-			<div class="container">
-				<button class="btn waves-effect waves-light blue lighten-1">
-					<i class="material-icons right">arrow_back</i>
-					{{#link-to 'index'}}{{/link-to}}
-				</button>
-			</div>
+			<div class="col s2 offset-s7">
+				{{#link-to 'regProyecto' tagName="button" class= "btn waves-effect waves-light blue lighten-1"}}<i class="material-icons right">arrow_forward</i>{{/link-to}}
+			</div>	
 		</div>
 	</footer>

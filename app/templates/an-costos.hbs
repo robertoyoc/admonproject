@@ -1,2 +1,67 @@
 {{outlet}}
 
+<div class="row">
+		<nav>
+			<div class="nav-wrapper blue lighten-2">
+			  <a href="#" class="brand-logo center"><h5>Analisis de costos</h5></a>
+			</div>
+		</nav>
+</div>
+
+ <div class="container s8 offset-s2">
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">monetization_on</i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">Presupuesto de inversion</label>
+                    </div>
+                </div>
+	             <div class="col s6 offset-6">
+	                <table class="striped ">
+				        <thead>
+				          <tr>
+				              <th>Name</th>
+				              <th>Item Name</th>
+				              <th>Item Price</th>
+				          </tr>
+				        </thead>
+				        <tbody>
+				          <tr>
+				            <td>Alvin</td>
+				            <td>Eclair</td>
+				            <td>$0.87</td>
+				          </tr>
+				          <tr>
+				            <td>Alan</td>
+				            <td>Jellybean</td>
+				            <td>$3.76</td>
+				          </tr>
+				          <tr>
+				            <td>Jonathan</td>
+				            <td>Lollipop</td>
+				            <td>$7.00</td>
+				          </tr>
+				        </tbody>
+	      			</table>
+	      		</div>
+            </form>
+        </div>
+
+
+    </div>
+
+    <footer class="page-footer blue lighten-1">
+		<div class="row">
+			<div class="col s2 offset-s1">
+				{{#link-to 'criterio' tagName="button" class= "btn waves-effect waves-light blue lighten-1"}}<i class="material-icons right">arrow_back</i>{{/link-to}}
+			</div>
+			<div class="col s2 offset-s7">
+				{{#link-to 'asigValores' tagName="button" class= "btn waves-effect waves-light blue lighten-1"}}<i class="material-icons right">arrow_forward</i>{{/link-to}}
+			</div>	
+		</div>
+	</footer>
+
+
