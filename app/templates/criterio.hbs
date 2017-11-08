@@ -9,12 +9,14 @@
 
 	<div class="row">
 		<div class="container">
+      {{#if model}}
 			<table class="striped">
 				<thead>
 					<tr>
 						<th>Criterio</th>
 						<th>Tipo</th>
 						<th>Ponderación</th>
+            <th style="width: 90px">Opciones</th>
 					</tr>
 				</thead>
 
@@ -22,20 +24,32 @@
           {{#each model as |criterio|}}
           <tr>
 
-            <td> {{criterio.nombre}} </td>
+            <td>{{criterio.nombre}}</td>
             <td> {{if criterio.isCuantitativo 'Cuantitativo' 'Cualitativo'}} </td>
-            <td> {{criterio.valor}} </td>
+            <td> {{input type="number" value=criterio.valor min=1 max=100}} </td>
+            <td class="right">
+              <button class="waves-effect waves-light btn" {{action 'deleteCriterio' criterio}}><i  class="material-icons">delete</i></button>
+
+            </td>
           </tr>
 
           {{/each}}
 				</tbody>
 			</table>
+      {{else}}
+      Aún no tenemos criterios registrados
+      {{/if}}
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="container">
-            {{#link-to 'addCriterio' tagName="button" class="btn waves-effect waves-light grey darken-1"}}<i class="material-icons right">add_circle</i> Añadir criterio {{/link-to}}
+
+      {{#link-to 'addCriterio' tagName="button" class="btn waves-effect waves-light grey darken-1"}}
+      <i class="material-icons right">add_circle</i> Añadir criterio
+      {{/link-to}}
+
+      <button class="right btn waves-effect waves-light grey darken-1" {{action "saveAndContinue" model}}><i class="material-icons right">add_circle</i> Añadir proyecto</button>
 		</div>
 	</div>
 
@@ -45,8 +59,8 @@
 				{{#link-to 'index' tagName="button" class= "btn waves-effect waves-light grey darken-1"}}<i class="material-icons right">arrow_back</i>{{/link-to}}
 			</div>
 			<div class="col s2 offset-s7">
-				{{#link-to 'regProyecto' tagName="button" class= "btn waves-effect waves-light grey darken-1"}}<i class="material-icons right">arrow_forward</i>{{/link-to}}
-			</div>	
+				{{#link-to 'regProyecto' tagName="button" class= "btn waves-effect waves-light blue lighten-1"}}<i class="material-icons right">arrow_forward</i>{{/link-to}}
+			</div>
 		</div>
 		<div class="row"></div>
 	</footer>
