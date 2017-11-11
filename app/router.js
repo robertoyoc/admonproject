@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('proyecto');
   this.route('criterio');
   this.route('anCostos');
+  this.route('criterio', {path: "/criterios"} );
   this.route('addCriterio', {path: "/new"});
   this.route('regProyecto');
   this.route('asigValores');

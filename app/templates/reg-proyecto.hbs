@@ -8,33 +8,32 @@
 	</div>
 
     <div class="container s8 offset-s2">
-
         <div class="row">
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">build</i>
-                        <input id="icon_prefix" type="text" class="validate">
+                        {{input value=model.proyecto.nombre type="text" class="validate"}}
                         <label for="icon_prefix">Identificador</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">mode_edit</i>
-                        <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                        {{textarea value=model.proyecto.descripcion class="materialize-textarea"}}
                         <label for="icon_prefix2">Descripción</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">attach_money</i>
-                        <input id="icon_prefix" type="text" class="validate">
+                        {{input value=model.proyecto.costo type="text" class="validate"}}
                         <label for="icon_prefix">Costo</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s4 offset-s8">
-                        <button class="btn grey darken-1" type="submit" name="action">Añadir Proyecto
+                        <button {{action 'saveProyecto' model.proyecto}}class="btn grey darken-1">Añadir Proyecto
                             <i class="material-icons right">add_circle_outline</i>
                         </button>
                     </div>
@@ -48,10 +47,11 @@
             </div>
             <div class="col s10">
                 <ul class="collection">
-                    <li class="collection-item">Proyecto 1</li>
-                    <li class="collection-item">Proyecto 2</li>
-                    <li class="collection-item">Proyecto 3</li>
-                    <li class="collection-item">Proyecto 4</li>
+                    {{#each model.proyectos as |proyecto|}}
+                      {{#if proyecto.nombre}}
+                      <li class="collection-item">{{proyecto.nombre}}</li>
+                      {{/if}}
+                    {{/each}}
                 </ul>
             </div>
         </div>
@@ -65,6 +65,6 @@
 			</div>
 			<div class="col s2 offset-s7">
 				{{#link-to 'asigValores' tagName="button" class= "btn waves-effect waves-light blue lighten-1"}}<i class="material-icons right">arrow_forward</i>{{/link-to}}
-			</div>	
+			</div>
 		</div>
 	</footer>
