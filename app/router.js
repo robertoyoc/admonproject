@@ -8,6 +8,8 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('proyecto');
+  this.route('criterio');
+  this.route('anCostos');
   this.route('criterio', {path: "/criterios"} );
   this.route('addCriterio', {path: "/nuevo"});
   this.route('regProyecto', {path: "/proyectos"});
