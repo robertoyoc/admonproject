@@ -50,7 +50,9 @@
                 <ul class="collection">
                     {{#each model.proyectos as |proyecto|}}
                       {{#if proyecto.nombre}}
-                      <li class="collection-item">{{proyecto.nombre}}</li>
+                      <li class="collection-item">{{proyecto.nombre}}
+                        <button {{action 'modalProyecto' proyecto}} class="waves-effect waves-light btn modal-trigger right">Mostrar</button>
+                      </li>
                       {{/if}}
                     {{/each}}
                 </ul>
@@ -68,3 +70,9 @@
 		</div>
         <div class="row"></div>
 	</footer>
+
+  {{#m-wrapper query=".modal" method="modal"}}
+    <div id="modal1" class="modal bottom-sheet">
+      {{proyecto-info proyecto=selectedProyecto}}
+    </div>
+  {{/m-wrapper}}
