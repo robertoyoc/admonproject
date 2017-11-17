@@ -1,4 +1,4 @@
-{{outlet}}
+
 	<div class="row">
 		<nav>
 			<div class="nav-wrapper blue lighten-2">
@@ -13,56 +13,53 @@
         </div>
         <div class="row">
             <div class="col s10 offset-s1 center">
-                <h5>1 = Muy baja</h5><i class="material-icons center">thumb_down</i> <h5>y</h5> <h5>N = Sobresaliente</h5><i class="material-icons center">thumb_up</i>
+                <h5>1 = Muy baja</h5><i class="material-icons center">thumb_down</i> <h5>y</h5> <h5>{{np}} = Sobresaliente</h5><i class="material-icons center">thumb_up</i>
             </div>
         </div>
         <div class="row">
-            <table class="striped">
-                <thead>
-                    <tr>
-                        <th>Criterio</th>
-                        <th>Ponderación</th>
-                        <th>A</th>
-                        <th>B</th>
-                        <th>C</th>
-                        <th>D</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="col s8 offset-s2">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width:200px;">Criterio</th>
+                            <th style="width:200px">Ponderación</th>
+                            {{#each model.proyectos as |proyecto|}}
+                                <th style="width:200px">{{proyecto.nombre}} </th>
+                            {{/each}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each model.criterios as |criterio|}}
+                                {{calif-mat criterio=criterio proyectos=model.proyectos tagName="tr"}}
+
+                        {{/each}}
+                        <tr>
+                            <td></td>
+                            <td>Total</td>
+                            {{#each model.proyectos as |proyecto|}}
+                                <td>{{proyecto.total}}</td>
+                            {{/each}}
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Prioridad</td>
+                            {{#each model.proyectos as |proyecto|}}
+                                <td>{{proyecto.prioridad}}</td>
+                            {{/each}}
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-    <footer class="page-footer blue lighten-1 ">
-		<div class="row">
-			<div class="col s2 offset-s1">
-				{{#link-to 'asigValores' tagName="button" class= "btn waves-effect waves-light grey darken-1"}}<i class="material-icons right">arrow_back</i>{{/link-to}}
-			</div>
-			<div class="col s2 offset-s7">
-				{{#link-to 'anCostos' tagName="button" class= "btn waves-effect waves-light grey darken-1"}}<i class="material-icons right">arrow_forward</i>{{/link-to}}
-			</div>	
-		</div>
-        <div class="row"></div>
-	</footer>
+    {{#ember-wormhole to="footer"}}
+    <div class="col l2 offset-l1">
+
+        {{#link-to 'asigValores' tagName="button" class= "btn waves-effect waves-light grey darken-1"}}<i class="material-icons right">arrow_back</i>{{/link-to}}
+    </div>
+    <div class="col l2 offset-l7">
+        {{#link-to 'anCostos' tagName="button" class= "btn waves-effect waves-light grey darken-1"}}<i class="material-icons right">arrow_forward</i>{{/link-to}}
+    </div>
+    {{/ember-wormhole}}

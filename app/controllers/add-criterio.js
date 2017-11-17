@@ -12,6 +12,10 @@ export default Ember.Controller.extend({
       criterio.save().then(()=>{
         Controller.transitionToRoute('criterio')
       })
+    },
+    deleteCriterio(criterio){
+    	criterio.destroyRecord();
+    	this.transitionToRoute('criterio')
     }
   }
 });

@@ -1,9 +1,12 @@
 <div class="modal-content">
   <h4>{{proyecto.nombre}}</h4>
-  <p>{{proyecto.descripcion}}</p>
+  <label>Descripción</label>
+  {{input type="text" value=proyecto.descripcion}} <br>
+  <label>Costo</label>
+  {{input type="text" value=proyecto.costo}} <br>
 </div>
 <div class="modal-footer">
-  <button {{action 'borrar'}}class="waves-effect waves-light btn modal-trigger">Borrar</button>
-  <button {{action 'guardar'}}class="waves-effect waves-light btn modal-trigger">Guardar</button>
+  <button {{action 'borrar' proyecto}}class="waves-effect waves-light btn modal-trigger">Borrar</button>
+  <button {{action 'guardar' proyecto}}class="waves-effect waves-light btn modal-trigger">Guardar</button>
   <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
 </div>

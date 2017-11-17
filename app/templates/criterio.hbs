@@ -34,6 +34,13 @@
           </tr>
 
           {{/each}}
+          <tr>
+
+          	<td></td>
+          	<td></td>
+          	<td style="color: {{unless canContinue 'red' (if canContinue 'green')}}">Total</td>
+          	<td style="color: {{unless canContinue 'red' (if canContinue 'green')}}">{{porcentaje}}</td>
+          </tr>
 				</tbody>
 			</table>
       {{else}}
@@ -42,25 +49,23 @@
 		</div>
 	</div>
 
+
 	<div class="row">
 		<div class="container">
 
-      {{#link-to 'addCriterio' tagName="button" class="btn waves-effect waves-light grey darken-1"}}
-      <i class="material-icons right">add_circle</i> Añadir criterio
-      {{/link-to}}
+ 		<button class="left btn waves-effect waves-light grey darken-1" {{action "addCriterio" model}}><i class="material-icons right">add_circle</i> Añadir criterio</button>
+ 		<button disabled="{{unless canContinue  'true'}}" class="right btn waves-effect waves-light grey darken-1 " {{action "saveAndContinue" model}}><i class="material-icons right">add_circle</i> Añadir proyecto</button>
 
-      <button class="right btn waves-effect waves-light grey darken-1" {{action "saveAndContinue" model}}><i class="material-icons right">add_circle</i> Añadir proyecto</button>
+
 		</div>
 	</div>
 
-	<footer class="page-footer blue lighten-1">
-		<div class="row">
-			<div class="col s2 offset-s1">
-				{{#link-to 'index' tagName="button" class= "btn waves-effect waves-light grey darken-1"}}<i class="material-icons right">arrow_back</i>{{/link-to}}
-			</div>
-			<div class="col s2 offset-s7">
-				{{#link-to 'regProyecto' tagName="button" class= "btn waves-effect waves-light blue lighten-1"}}<i class="material-icons right">arrow_forward</i>{{/link-to}}
-			</div>
-		</div>
-		<div class="row"></div>
-	</footer>
+	{{#ember-wormhole to="footer"}}
+    <div class="col l2 offset-l1">
+        {{#link-to 'index' tagName="button" class= "btn waves-effect waves-light grey darken-1"}}<i class="material-icons right">arrow_back</i>{{/link-to}}
+    </div>
+    <div class="col l2 offset-l7">
+        {{#link-to 'regProyecto' tagName="button" class= "btn waves-effect waves-light grey darken-1"}}<i class="material-icons right">arrow_forward</i>{{/link-to}}
+    </div>
+    {{/ember-wormhole}}
+

@@ -4,6 +4,6 @@ export default DS.Model.extend({
   nombre: DS.attr('string'),
   isCuantitativo: DS.attr('boolean', { defaultValue: true }),
   cal: DS.attr('string'),
-  valor: DS.attr('number')
+  valor: DS.attr('string')
 
 });

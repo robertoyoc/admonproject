@@ -4,6 +4,7 @@ export default DS.Model.extend({
 
   proyecto: DS.belongsTo('proyecto'),
   criterio: DS.belongsTo('criterio'),
-  calificacion: DS.attr('number')
+  calificacion: DS.attr('number'),
+  eq: DS.attr('number')
 
 });

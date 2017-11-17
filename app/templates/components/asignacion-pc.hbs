@@ -1,0 +1,32 @@
+
+
+
+
+{{#unless criterio.isCuantitativo}}
+<div class="row">
+    <div class="col m12">
+      <select class="browser-default" onchange={{action (mut asignacion.calificacion) value="target.value"}}>
+                <option disabled selected>Selecciona</option>
+        {{#each categories as |categoryChoice index|}}
+          <option value={{index}} selected={{eq asignacion.calificacion index}}>{{categoryChoice.nombre}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+{{else}}
+{{input type="number" value=asignacion.calificacion}}
+
+{{/unless}}
+
+
+{{!-- {{#unless model.isCuantitativo}}
+      
+      {{else}}
+        <div class="row">
+          <div class="input-field col m12">
+            {{input type="text" value=model.valor class="validate"}}
+            <label for="Nuevo criterio">Valor</label>
+          </div>
+        </div>
+
+      {{/unless}} --}}

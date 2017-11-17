@@ -1,0 +1,6 @@
+<td>{{criterio.nombre}}</td>
+<td>{{criterio.valor}}</td>
+
+{{#each proyectos as |proyecto|}}
+	{{asignacion-eq criterio=criterio proyecto=proyecto tagName="td"}}
+{{/each}}

@@ -9,12 +9,12 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('proyecto');
   this.route('criterio');
-  this.route('anCostos');
+  this.route('anCostos', {path: "/costos"});
   this.route('criterio', {path: "/criterios"} );
   this.route('addCriterio', {path: "/nuevo"});
   this.route('regProyecto', {path: "/proyectos"});
-  this.route('asigValores');
-  this.route('matDecision');
+  this.route('asigValores', {path: "/valores"});
+  this.route('matDecision', {path: "/matriz"});
 });
 
 export default Router;
