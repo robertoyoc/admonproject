@@ -27,7 +27,21 @@ export default Ember.Controller.extend({
 
   actions: {
     deleteCriterio(criterio){
-      criterio.destroyRecord()
+
+      let con = this;
+      new Promise(function (res, rej) {
+        con.get('store').findAll('asignacion').then((arr)=>{
+          let deleteAsig = arr.filterBy('criterio.id', criterio.get('id'));
+          deleteAsig.forEach((asig)=>{
+            asig.destroyRecord();
+          })
+        });
+        res();
+        
+      }).then(()=>{
+        criterio.destroyRecord();
+        window.Materialize.toast('Borrado', 2000) //
+      })
     },
     saveAndContinue(model){
       model.forEach((criterio)=>{

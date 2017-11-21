@@ -28,6 +28,10 @@ export default Ember.Controller.extend({
     asigValores(proyecto){
       proyecto.destroyRecord();
       this.transitionToRoute('asigValores');
+    },
+    criterio(proyecto){
+      proyecto.destroyRecord();
+      this.transitionToRoute('criterio')
     }
   }
 });

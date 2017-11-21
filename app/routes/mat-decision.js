@@ -10,5 +10,5 @@ export default Ember.Route.extend({
 			proyectos: this.get('store').findAll('proyecto'),
 			criterios: this.get('store').findAll('criterio')
 		})
-	}
+	},
 });

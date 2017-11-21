@@ -25,7 +25,8 @@ export default Ember.Component.extend({
 		let cProyecto = this.get('proyecto');
 		let cCriterio = this.get('criterio');
 
-		this.get('store').findAll('asignacion').then((arr)=>{
+		if(cProyecto.get('nombre')!=undefined){
+			this.get('store').findAll('asignacion').then((arr)=>{
 			let potenciales = arr.filterBy('proyecto.id', cProyecto.get('id'));
 			let asignacion = potenciales.filterBy('criterio.id', cCriterio.get('id'))
 
@@ -40,6 +41,9 @@ export default Ember.Component.extend({
 				}
 			}
 		});
+
+		}
+		
 
 
 		

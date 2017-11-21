@@ -11,19 +11,32 @@ export default Ember.Component.extend({
 				order = arr.filterBy('criterio.id', this.get('criterio.id')).sortBy('calificacion')
 
 				if(this.get('criterio.cal')==0){
+
+					order.reverse();
+
 					//mejor calificacion al menor
-					let init = order.get('length')*2-1;
-					order.forEach((el)=>{
-						el.set('eq', init);
-						init = init - 2;
+					let init = 1;
+					order.forEach((el,index)=>{
+						el.set('eq', init);	
+						if(order[index+1]){
+							if(order[index+1].get('calificacion')!=el.get('calificacion')){
+								init = init + 2;
+							}
+						}
+												
 					});
 				}
 				else{
 					//mejor calificacion al mayor
 					let init = 1;
-					order.forEach((el)=>{
-						el.set('eq', init);
-						init = init + 2;
+					order.forEach((el,index)=>{
+						el.set('eq', init);	
+						if(order[index+1]){
+							if(order[index+1].get('calificacion')!=el.get('calificacion')){
+								init = init + 2;
+							}
+						}
+												
 					});
 				}
 				return arr;

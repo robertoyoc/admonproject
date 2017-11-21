@@ -70,7 +70,7 @@
     {{#ember-wormhole to="footer"}}
     <div class="col l2 offset-l1">
 
-        {{#link-to 'criterio' tagName="button" class= "btn waves-effect waves-light grey darken-1"}}<i class="material-icons right">arrow_back</i>{{/link-to}}
+        <button {{action 'criterio' model.proyecto}} class= "btn waves-effect waves-light grey darken-1" ><i class="material-icons right">arrow_back</i></button>
     </div>
     <div class="col l2 offset-l7">
         <button {{action 'asigValores' model.proyecto}} class= "btn waves-effect waves-light grey darken-1" ><i class="material-icons right">arrow_forward</i></button>
